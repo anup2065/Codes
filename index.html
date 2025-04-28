@@ -1,0 +1,1869 @@
+<html>
+
+<head>
+    <title>C Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h3 {
+            color: #2980b9;
+        }
+
+        pre {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .important-code {
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+        }
+
+        #main-title {
+            text-decoration: underline;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="main-title">All the important C codes for class 11</h1>
+    <h3>1) Use of Pre-processor Directives:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;  
+        #include &lt;stdlib.h&gt;  
+
+        #define pi 3.14159  
+        #define square(n) ((n) * (n))  
+        #define sum(x, y) ((x) + (y))  
+
+        #include "extra.h"  
+
+        #ifdef WINDOWS  
+            #define systemName "Windows"  
+        #elif defined(LINUX)  
+            #define systemName "Linux"  
+        #else  
+            #define systemName "Unknown System"  
+        #endif  
+
+        #ifndef limit  
+            #define limit 100  
+        #endif  
+
+        #pragma message("Starting Compilation...")  
+
+        int main() {  
+            double r = 4.5;  
+            int a = 10, b = 20;  
+
+            printf("Running on: %s\n", systemName);  
+            printf("Value of pi: %.5f\n", pi);  
+            printf("Square of %.1f: %.2f\n", r, square(r));  
+            printf("Sum of %d and %d: %d\n", a, b, sum(a, b));  
+            printf("Limit value: %d\n", limit);  
+
+            displayMessage();  
+
+            return 0;  
+        }  
+    </code>
+    <i> Compilation Interface:</i>
+    <br>
+    <img src="./27z.png" alt="Hello World Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./27.png" alt="Pre-processor Directives Output">
+</pre>
+
+    <h3>2) Use of Tokens (Keywords, Identifiers, Constants, Strings, Special Symbols, Operators):</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {  
+            int a = 10, b = 5;  
+            float pi = 3.14159;  
+            char letter = 'A';  
+            char name[] = "Anup";  
+
+            printf("Hello, %s!\n", name);  
+            printf("Value of pi: %.5f\n", pi);  
+            printf("Sum of %d and %d: %d\n", a, b, a + b);  
+            printf("Multiplication of %d and %d: %d\n", a, b, a * b);  
+            printf("Character stored: %c\n", letter);  
+
+            if (a > b) {  
+                printf("%d is greater than %d\n", a, b);  
+            }  
+
+            for (int i = 1; i <= 3; i++) {  
+                printf("Loop iteration: %d\n", i);  
+            }  
+
+            return 0;  
+        }
+    </code>
+    <i> Compilation Interface:</i>
+    <br>
+    <img src="./28z.png" alt="Hello World Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./28.png" alt="Tokens Output">
+</pre>
+
+    <h3>3) Use of Formatted Input/Output Functions:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            int age;
+            float height;
+            char name[50];
+
+            printf("Enter your name: ");
+            scanf("%s", name);  
+
+            printf("Enter your age: ");
+            scanf("%d", &age);
+
+            printf("Enter your height in meters: ");
+            scanf("%f", &height);
+
+            printf("\nYour Details:\n");
+            printf("Name: %s\n", name);
+            printf("Age: %d years\n", age);
+            printf("Height: %.2f meters\n", height);
+
+            return 0;
+        }
+    </code>
+    <i> Compilation Interface:</i>
+    <br>
+    <img src="./29z.png" alt="Hello World Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./29.png" alt="Formatted I/O Output">
+</pre>
+
+    <h3>4) Use of Unformatted I/O Functions:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            char ch;
+            char fullName[100];
+
+            printf("Enter a character: ");
+            ch = getchar();  
+
+            printf("You entered: ");
+            putchar(ch);
+            putchar('\n');
+
+            getchar();  
+
+            printf("Enter your full name: ");
+            gets(fullName);  
+
+            printf("Your full name is: ");
+            puts(fullName);  
+
+            return 0;
+        }
+    </code>
+    <i> Compilation Interface:</i>
+    <br>
+    <img src="./30z.png" alt="Hello World Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./30.png" alt="Unformatted I/O Output">
+</pre>
+
+    <h3>5) Use of Switch Case and Goto Label:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            int choice;
+            
+            printf("Menu:\n");
+            printf("1. Say Hello\n");
+            printf("2. Display Sum of Two Numbers\n");
+            printf("3. Exit\n");
+            
+            printf("Enter your choice: ");
+            scanf("%d", &choice);
+
+            switch(choice) {
+                case 1:
+                    printf("Hello, Welcome to C Programming!\n");
+                    break;
+                case 2: {
+                    int a, b;
+                    printf("Enter two numbers: ");
+                    scanf("%d %d", &a, &b);
+                    printf("Sum: %d\n", a + b);
+                    break;
+                }
+                case 3:
+                    goto exit_label;
+                default:
+                    printf("Invalid choice! Try again.\n");
+                    goto main_menu;
+            }
+
+        main_menu:
+            printf("\nDo you want to try again? (1 for Yes, 0 for No): ");
+            int retry;
+            scanf("%d", &retry);
+            
+            if (retry == 1) {
+                goto start; 
+            } else {
+                goto exit_label;
+            }
+
+        start:
+            main();  // Restart the program
+
+        exit_label:
+            printf("Exiting program. Goodbye!\n");
+            return 0;
+        }
+    </code>
+    <i> Compilation Interface:</i>
+    <br>
+    <img src="./31z.png" alt="Hello World Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./31.png" alt="Switch Case and Goto Output">
+</pre>
+    <h2><u>Errors: </u></h2>
+    <h3>6) Syntax Error:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            printf("Hello World")  // Missing semicolon
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./32.png" alt="Syntax Error Output">
+</pre>
+
+    <h3>7) Semantic Error:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            int arr[5] = {1, 2, 3, 4, 5};
+            int sum = 0;
+
+            for (int i = 1; i <= 5; i++) {  // Incorrect loop condition (should start from 0)
+                sum += arr[i];  
+            }
+
+            printf("Sum: %d", sum);
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./33.png" alt="Semantic Error Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./33r.png" alt="Switch Case and Goto Output">
+</pre>
+
+    <h3>8) Runtime Error:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            int a = 5, b = 0;
+            int c = a / b;  // Division by zero
+            printf("%d", c);
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./34.png" alt="Runtime Error Output">
+
+</pre>
+
+    <h3>9) Logical Error:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+
+        int main() {
+            int a = 5, b = 10;
+            int sum = a - b;  // Incorrect operation (should be addition)
+            printf("%d", sum);
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./35.png" alt="Logical Error Output">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./35r.png" alt="Switch Case and Goto Output">
+</pre>
+    <hr style="border: 3px solid black">
+    <h3>10) Printing 1D using 1D array:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+        int main()
+        {
+            char a[5]={'a', 'b', 'c', 'd', 'e'};
+            for(int i=0; i<5; i++)
+            {
+                printf("%c\t",a[i]);
+            }
+        
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./36.png" alt="">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./36r.png" alt="">
+</pre>
+    <h3>11) Printing 2D using 1D array:</h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+        int main()
+        {
+            for(int j=0;j&lt;5;j++)
+            {
+            char a[5]={'a', 'b', 'c', 'd', 'e'};
+            for(int i=0; i&lt5; i++)
+            {
+                printf("%c\t",a[i]);
+            }
+            printf("\n");
+        }
+        
+            return 0;
+        }
+    </code>
+    <i>Compilation Interface:</i>
+    <br>
+    <img src="./37.png" alt="">
+    <i>Code Execution:</i>
+    <br>
+    <img src="./37r.png" alt="">
+</pre>
+
+    <h3>12) Code to Print Hello World:</h3>
+    <pre class="important-code">
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                printf("Hello World");
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./1z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution :</i>
+        <br>
+        <img src="./1.png" alt="Hello World Output">
+    </pre>
+
+    <h3>13) Code to initialize values for different data type
+        char, float, int and other data types and display its value.</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int a=4;
+                float b=5.5;
+                char c='A';
+                printf("Int value is %d\n",a);
+                printf("Float value is %f\n",b);
+                printf("Char value is %c\n",c);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./2z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./2.png" alt="Data Types Output">
+    </pre>
+
+    <h3>14) Code to initialize and display the value of variable.</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int a=4;
+                printf("%d",a);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./3z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./3.png" alt="Initialize Variable Output">
+    </pre>
+
+    <h3 class="section-title">15) Code to take user input for different data type and display it.</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int a;
+                float b;
+                char c;
+                printf("Enter integer value: ");
+                scanf("%d",&a);
+                printf("Enter floating point value: ");
+                scanf("%f",&b);
+                printf("Enter any character: ");
+                scanf(" %c",&c);
+                printf("Int value is %d\n",a);
+                printf("Float value is %f\n",b);
+                printf("Char value is %c\n",c);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./4z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <br>
+        <img src="./4.png" alt="User Input Output">
+    </pre>
+
+    <h3>16) Code to demonstrate the arithmetic operation of two numbers (+,-,*,/,%).</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int a,b;
+                printf("Enter two numbers: ");
+                scanf("%d %d",&a,&b);
+                printf("Sum = %d\n",a+b);
+                printf("Difference = %d\n",a-b);
+                printf("Quotient = %d\n",a/b);
+                printf("Remainder = %d\n",a%b);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./5z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./5.png" alt="Arithmetic Operations Output">
+    </pre>
+
+    <h3>17) Code to demonstrate the increment and decrement operators. (a++,--a,++a,a--)</h3>
+    <pre class="important-code">
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                for (int a=0;a<5;a++)
+                {
+                    printf("Anup\n");
+                }
+                return 0;
+            }
+
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                for (int i=0;i<5;++i)
+                {
+                    printf("Anup\n");
+                }
+                return 0;
+            }
+
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                for (int i=0;i>-5;i--)
+                {
+                    printf("Anup\n");
+                }
+                return 0;
+            }
+
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                for (int i=0;i>-5;--i)
+                {
+                    printf("Computer\t");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./6az.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./6a.png" alt="Increment/Decrement Output">
+    </pre>
+
+    <h3>18) Code to use string handling functions:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
+
+            int main() {
+                char a[100], b[100], c[100], d[100], e[100], f[200], g[100];
+                int l, x;
+                printf("Enter a string: ");
+                scanf("%s", a);
+                printf("Enter another string: ");
+                scanf("%s", b);
+                l = strlen(a);
+                x = strcmp(a, b);
+                strcpy(c, a);
+                strcpy(d, strupr(c));
+                strcpy(c, a);
+                strcpy(e, strlwr(c));
+                strcpy(c, a);
+                strcpy(f, a);
+                strcat(f, b);
+                strcpy(c, a);
+                strcpy(g, strrev(c));
+                printf("Length of '%s' is: %d\n", a, l);
+                printf("Comparison of '%s' and '%s': %d\n", a, b, x);
+                printf("Copy of '%s': %s\n", a, c);
+                printf("Uppercase: %s\n", d);
+                printf("Lowercase: %s\n", e);
+                printf("Concatenation of '%s' and '%s': %s\n", a, b, f);
+                printf("Reverse of '%s': %s\n", a, g);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./7z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./7.png" alt="String Functions Output">
+    </pre>
+
+    <h3 class="section-title">19) Code to perform matrix addition:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, a[2][2], b[2][2], s[2][2], r, c;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                printf("Enter the number of columns: ");
+                scanf("%d", &c);
+                printf("Enter the values of first matrix: ");
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        scanf("%d", &a[i][j]);
+                    }
+                }
+                printf("Enter the values of second matrix: ");
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        scanf("%d", &b[i][j]);
+                    }
+                }
+                printf("\n");
+
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        printf(" %d ", a[i][j] + b[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./8z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./8.png" alt="Matrix Addition Output">
+    </pre>
+
+    <h3>20) Code to subtract 2 matrices:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int i, j, a[2][2], b[2][2], s[2][2], r, c;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                printf("Enter the number of columns: ");
+                scanf("%d", &c);
+                printf("Enter the values of first matrix: ");
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        scanf("%d", &a[i][j]);
+                    }
+                }
+                printf("Enter the values of second matrix: ");
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        scanf("%d", &b[i][j]);
+                    }
+                }
+                printf("\n");
+
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        printf(" %d ", a[i][j] - b[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./9z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="./9.png" alt="Matrix Subtraction Output">
+    </pre>
+
+    <h3>21) Code to print the transpose of a matrix:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int c, r;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                printf("Enter the number of columns: ");
+                scanf("%d", &c);
+                int i, j, a[r][c], b[c][r];
+                printf("Enter the values of first matrix: ");
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        scanf("%d", &a[i][j]);
+                    }
+                }
+
+                printf("The transpose of a given matrix is: \n");
+                for (i = 0; i < c; i++) {
+                    for (j = 0; j < r; j++) {
+                        b[i][j] = a[j][i];
+                        printf("%d\t", b[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./10z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./10.png" alt="Matrix Transpose Output">
+    </pre>
+
+    <h3 id="sorting-section">22) Code to print the input numbers in ascending and descending order:</h3>
+    <pre>
+        <code>
+            // Ascending order
+            #include &lt;stdio.h&gt;
+            int main() {
+                int b;
+                printf("How many Numbers you want to sort in ascending order?: ");
+                scanf("%d", &b);
+                int i, j, a[b], temp;
+                printf("Enter the numbers\n");
+                for (i = 0; i < b; i++) {
+                    printf("Enter number %d: ", i + 1);
+                    scanf("%d", &a[i]);
+                }
+                for (i = 0; i < b; i++) {
+                    for (j = i + 1; j < b; j++) {
+                        if (a[i] > a[j]) {
+                            temp = a[i];
+                            a[i] = a[j];
+                            a[j] = temp;
+                        }
+                    }
+                }
+                printf("The given number is sorted in ascending order as shown below: \n");
+                for (i = 0; i < b; i++) {
+                    printf("%d ", a[i]);
+                }
+                return 0;
+            }
+
+            // Descending order
+            #include &lt;stdio.h&gt;
+            int main() {
+                int b, temp, i, j;
+                printf("Enter how many numbers do you want to sort?: ");
+                scanf("%d", &b);
+                printf("Enter the elements\n");
+                int a[b];
+                for (i = 0; i < b; i++) {
+                    printf("Number %d: ", i + 1);
+                    scanf("%d", &a[i]);
+                }
+                for (i = 0; i < b - 1; i++) {
+                    for (j = i + 1; j < b; j++) {
+                        if (a[i] < a[j]) {
+                            temp = a[i];
+                            a[i] = a[j];
+                            a[j] = temp;
+                        }
+                    }
+                }
+                printf("The numbers in descending order is: \n");
+                for (i = 0; i < b; i++) {
+                    printf("%d ", a[i]);
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./11az.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./11a.png" alt="Ascending Order Output">
+        <br>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./11bz.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./11b.png" alt="Descending Order Output">
+    </pre>
+
+    <h3>23) Use of while loop to reverse a number:</h3>
+    <pre class="important-code">
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a;
+                int b;
+                int r;
+                int s = 0;
+
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                int temp = a;
+                while (temp != 0) {
+                    r = temp % 10;
+                    temp /= 10;
+                    s = s * 10 + r;
+                }
+                printf("The reversed number of %d is: %d", a, s);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./12z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./12.png" alt="Number Reversal Output">
+    </pre>
+
+    <h3>24) Write a program to input any 10 numbers in an array and display it. Find the biggest number among the input
+        numbers:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a[10];
+                printf("Enter any 10 numbers: ");
+                for (int i = 0; i < 10; i++) {
+                    scanf("%d", &a[i]);
+                }
+                for (int i = 0; i < 10; i++) {
+                    printf("%d\t", a[i]);
+                }
+                printf("\n");
+                int temp;
+                for (int i = 0; i < 9; i++) {
+                    for (int j = i + 1; j < 10; j++) {
+                        if (a[i] > a[j]) {
+                            temp = a[i];
+                            a[i] = a[j];
+                            a[j] = temp;
+                        }
+                    }
+                }
+                printf("The greatest number is %d", a[9]);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./13z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./13.png" alt="Find Biggest Number Output">
+    </pre>
+
+    <h3>25) Simple logic to print the greatest number from the given array of numbers:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a[5];
+                printf("Enter 5 numbers: ");
+                for (int i = 0; i < 5; i++) {
+                    scanf("%d", &a[i]);
+                }
+                int g = a[4];
+                for (int i = 0; i < 4; i++) {
+                    if (a[i] > g) {
+                        g = a[i];
+                    }
+                }
+                printf("The greatest number is %d", g);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./14z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./14.png" alt="Greatest Number Output">
+    </pre>
+
+    <h3 class="section-title">26) Write a program to find out whether the entered number is positive or negative:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                if (a == 0) {
+                    printf("Zero");
+                } else if (a < 0) {
+                    printf("Negative Number");
+                } else {
+                    printf("Positive Number");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./15z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./15.png" alt="Positive Negative Check Output">
+    </pre>
+
+    <h3>27) Write a program to print multiplication table of 1 to 10:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                for (int i = 1; i < 11; i++) {
+                    printf("%d x %d = %d\n", a, i, a * i);
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./16z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./16.png" alt="Multiplication Table Output">
+    </pre>
+
+    <h3>28) Write a program to input any 10 integer numbers in array and find the total sum:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a[10], sum = 0;
+                printf("Enter 10 numbers \n");
+                for (int i = 0; i < 10; i++) {
+                    printf("Number %d: ", i + 1);
+                    scanf("%d", &a[i]);
+                }
+                for (int i = 0; i < 10; i++) {
+                    sum += a[i];
+                }
+                printf("The sum of entered numbers is %d", sum);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./17z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./17.png" alt="Sum of Array Output">
+    </pre>
+
+    <h3>29) Write a program to find the addition of any two matrix of size 2*2 using array:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a[2][2], b[2][2];
+                printf("Enter the elements of the first matrix: ");
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        scanf("%d", &a[i][j]);
+                    }
+                }
+                printf("Enter the elements of the second matrix: ");
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        scanf("%d", &b[i][j]);
+                    }
+                }
+                printf("The addition of the matrix is: \n");
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        printf("%d\t", a[i][j] + b[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./18z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./18.png" alt="2x2 Matrix Addition Output">
+    </pre>
+
+    <h3>30) Write a program to compare any two strings by using string function in C:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
+            int main() {
+                char a[100], b[100];
+                printf("Enter a string: ");
+                scanf("%s", a);
+                printf("Enter another string: ");
+                scanf("%s", b);
+                if ((strcmp(a, b) == 0)) {
+                    printf("The provided strings are same");
+                } else {
+                    printf("The provided strings are not same");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./19z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="./19.png" alt="String Comparison Output">
+    </pre>
+
+    <h3 id="switch-section">31) Example of switch statement in C:</h3>
+    <pre class="important-code">
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a;
+                printf("Enter the number: ");
+                scanf("%d", &a);
+                switch ((a < 0) - (a > 0)) {
+                    case 0:
+                        printf("It is zero");
+                        break;
+                    case 1:
+                        printf("Negative Number");
+                        break;
+                    case -1:
+                        printf("Positive number");
+                        break;
+                    default:
+                        printf("Invalid");
+                        break;
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./20z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="20.png" alt="Switch Statement Output">
+    </pre>
+
+    <h3>32) Write a program to enter elements into 4x4 matrix and find the sum of the elements of matrix:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, a[4][4], sum = 0;
+                printf("Enter the elements of the matrix: \n");
+                for (i = 0; i < 4; i++) {
+                    for (j = 0; j < 4; j++) {
+                        scanf("%d", &a[i][j]);
+                    }
+                }
+                for (i = 0; i < 4; i++) {
+                    for (j = 0; j < 4; j++) {
+                        sum = sum + a[i][j];
+                    }
+                }
+                printf("The sum of the all elements of the matrix is %d", sum);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./21z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="21.png" alt="Matrix Sum Output">
+    </pre>
+
+    <h3>33) Write a program to read five positive integers using array and find out the smallest among them:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, a[4], b;
+                printf("Enter five positive numbers: ");
+                for (i = 0; i < 5; i++) {
+                re:
+                    printf("Enter number %d: ", i + 1);
+                    scanf("%d", &b);
+                    if (b > 0) {
+                        a[i] = b;
+                    } else {
+                        goto re;
+                    }
+                }
+                int s = a[0];
+                for (i = 1; i < 5; i++) {
+                    if (a[i] < s) {
+                        s = a[i];
+                    }
+                }
+                printf("The smallest number is %d", s);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./22z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="22.png" alt="Smallest Number Output">
+    </pre>
+
+    <h3 class="section-title">34) Write a program to perform operations on two numbers using switch case:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a, b;
+                char c;
+                printf("Enter two numbers: ");
+                scanf("%d %d", &a, &b);
+                printf("Enter the type of operation you want to perform: ");
+                scanf(" %c", &c);
+                switch (c) {
+                    case '+':
+                        printf("%d", a + b);
+                        break;
+                    case '-':
+                        printf("%d", a - b);
+                        break;
+                    case '*':
+                        printf("%d", a * b);
+                        break;
+                    case '/':
+                        printf("%d", a / b);
+                        break;
+                    case '%':
+                        printf("%d", a % b);
+                        break;
+                    default:
+                        printf("Invalid");
+                        break;
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./23z.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="23.png" alt="Operations with Switch Output">
+    </pre>
+
+    <h3>35) Write a C program to print the elements of a one-dimensional array and two-dimensional array in a pattern of
+        your choice:</h3>
+
+    <h4 class="pattern-title">Square Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int r, i, j, e = 1;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                int a[r][r];
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        a[i][j] = e;
+                        e += 1;
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        printf("%d ", a[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24az.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="24a.png" alt="Square Pattern Output">
+    </pre>
+
+    <h4>Rectangle Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, r, c, e = 1;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                printf("Enter the number of columns: ");
+                scanf("%d", &c);
+                int a[r][c];
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        a[i][j] = e;
+                        e += 1;
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < c; j++) {
+                        printf("%d\t", a[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24bz.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="24b.png" alt="Rectangle Pattern Output">
+    </pre>
+
+    <h4>Right Pyramid Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, e = 1, r;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                int a[r][r];
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j <= i; j++) {
+                        a[i][j] = e;
+                        e += 1;
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j <= i; j++) {
+                        printf("%d\t", a[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24cz.png" alt="Hello World Output">
+        <i>Code Executon:</i>
+        <br>
+        <img src="24c.png" alt="Right Pyramid Pattern Output">
+    </pre>
+
+    <h4>Right Inverse Pyramid Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, e = 1, r;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                int a[r][r];
+                for (i = 0; i < r; i++) {
+                    for (j = r; j > i; j--) {
+                        a[i][j] = e;
+                        e += 1;
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = r; j > i; j--) {
+                        printf("%d\t", a[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24dz.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="24d.png" alt="Right Inverse Pyramid Pattern Output">
+    </pre>
+
+    <h4>Left Half Pyramid Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, r, e = 1;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                int a[r][r];
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        if (j >= (r - i - 1)) {
+                            a[i][j] = e;
+                            e += 1;
+                        } else {
+                            a[i][j] = 0;
+                        }
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        if (j >= (r - i - 1)) {
+                            printf("%d\t", a[i][j]);
+                        } else {
+                            printf("\t");
+                        }
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24ez.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="24e.png" alt="Left Half Pyramid Pattern Output">
+    </pre>
+
+    <h4>Left Inverse Pyramid Pattern:</h4>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j, e = 1, r;
+                printf("Enter the number of rows: ");
+                scanf("%d", &r);
+                int a[r][r];
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        if (j >= i) {
+                            a[i][j] = e;
+                            e += 1;
+                        } else {
+                            a[i][j] = 0;
+                        }
+                    }
+                }
+                for (i = 0; i < r; i++) {
+                    for (j = 0; j < r; j++) {
+                        if (j >= i) {
+                            printf("%d\t", a[i][j]);
+                        } else {
+                            printf("\t");
+                        }
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./24fz.png" alt="Hello World Output">
+        <i>Code Execution:</i>
+        <br>
+        <img src="24f.png" alt="Left Inverse Pyramid Pattern Output">
+    </pre>
+
+    <h3>36) Factorial of a number:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int a, b, f = 1;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                b = a;
+                for (int i = 1; i <= b; i++) {
+                    f *= b;
+                    b -= 1;
+                }
+                printf("The factorial of %d is %d", a, f);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./25z.png" alt="Hello World Output">
+        <br>
+        <i>Code Execution:</i>
+        <br>
+        <img src="25.png" alt="Factorial Output">
+    </pre>
+
+    <h3>37) Code to reverse the input string:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main() {
+                int i, j;
+                char a[100], temp;
+
+                printf("Enter a string: ");
+                scanf("%s", a);
+
+                for (i = 0; a[i] != '\0'; i++); // Find the length of the string
+                j = i - 1; // Set j to the last character index
+
+                for (i = 0; i < j; i++, j--) { // Reverse the string
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+
+                printf("The reversed string is: %s", a);
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./26z.png" alt="Hello World Output">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="26.png" alt="String Reversal Output">
+    </pre>
+    <h3>38) Code to print 2D using 2D array:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+                int main() {
+                    int a[3][4]={{'1','2','3'}, {'4','5','6'}, {'7','8','9'}};
+                  for(int i=0;i<3;i++)
+                {
+                    for(int j=0;j<4;j++)
+                    {
+                        printf("%d\t",a[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+                }
+                
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./38.png" alt="Hello World Output">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="38r.png" alt="String Reversal Output">
+    </pre>
+    <h3>39) Matrix Multiplication using 2D array:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+                int main()
+                {
+                    int r, c, x, y;
+                    start: 
+                    printf("Enter the number of row of first matrix: ");
+                    scanf("%d", &r);
+                    printf("Enter the number of columb of first matrix: ");
+                    scanf("%d", &c);
+                    printf("Enter the number of row of second matrix: ");
+                    scanf("%d", &x);
+                    printf("Enter the number of columb of second matrix: ");
+                    scanf("%d", &y);
+                    if (c != x)
+                    {
+                        printf("The number of columns of the first matrix and the number of rows of second matrix should be equal in order to perform matrix multiplication. \n");
+                        goto start;
+                        
+                    }
+                    int i,j,k,a[r][c], b[x][y], m[r][y];
+                    printf("Enter the elements of the first matrix: \n");
+                    for(i=0;i&lt;r;i++)
+                    {
+                        for(j=0;j&lt;c;j++)
+                        {
+                            printf("%d row %d column= ", i+1,j+1);
+                            scanf("%d",&a[i][j]);
+                        }
+                    }
+                    printf("Enter the elements of the second matrix: \n");
+                    for(i=0;i&lt;x;i++)
+                    {
+                        for(j=0;j&lt;y;j++)
+                        {
+                            printf("%d row %d column= ", i+1,j+1);
+                            scanf("%d",&b[i][j]);
+                        }
+                    }
+                    for(i=0;i&lt;r;i++)
+                    {
+                        for (j=0;j&lt;y;j++)
+                        {
+                            m[i][j]=0;
+                            for (k=0;k&lt;c;k++)
+                            {
+                                m[i][j]=m[i][j]+a[i][k]*b[k][j];
+                            }
+                        }
+                    }
+                    printf("The result of the matrix multiplicaion is: \n");
+                    for(i=0;i&lt;r;i++)
+                    {
+                        for(j=0;j&lt;y;j++)
+                        {
+                            printf("%d\t",m[i][j]);			
+                        }
+                        printf("\n");
+                    }
+                }
+                
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./39.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="39r.png" alt="">
+    </pre>
+    <h3>40) Printing diamond shape:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+
+                int main() {
+                    int n = 5;
+                
+                    for (int i = 0; i < 2 * n - 1; i++) {
+                        int x;
+                        if (i < n) x = 2 * (n - i) - 1;
+                        else x = 2 * (i - n + 1) + 1;
+                
+                        for (int j = 0; j < x; j++)
+                            printf(" ");
+                
+                        for (int k = 0; k < 2 * n - x; k++)
+                            printf("* ");
+                
+                        printf("\n");
+                    }
+                
+                    return 0;
+                }
+                
+                
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./40.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="40r.png" alt="">
+    </pre>
+    <h3>41) Performing Matrix multiplication:</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int c,r,z,i,j,k;
+                printf("Enter the rows of first matrix: \n");
+                scanf("%d",&r);
+                printf("Enter the numebr of colums of first matrix: \n");
+                scanf("%d",&c);
+                printf("Enter the number of column of second matrix: \n");
+                scanf("%d",&z);
+                int a[r][c],b[c][z],m[r][z];
+                printf("Enter the elements of the first matrix: \n");
+                for (i=0;i&lt;r;i++)
+                {
+                    for(j=0;j&lt;c;j++)
+                    {
+                        scanf("%d",&a[i][j]);
+                    }
+                }
+                printf("Enter the elements of the second matrix: \n");
+                for (i=0;i&lt;c;i++)
+                {
+                    for(j=0;j&lt;z;j++)
+                    {
+                        scanf("%d",&b[i][j]);
+                    }
+                }
+                for (i=0;i&lt;r;i++)
+                {
+                    for(j=0;j&lt;z;j++)
+                    {
+                        m[i][j]=0;
+                        for(k=0;k&lt;c;k++)
+                        {
+                            m[i][j]+=a[i][k]*b[k][j];
+                        }
+                    }
+                }
+                printf("The product of the given matrices is: \n");
+                for (i=0;i&lt;r;i++)
+                {
+                    for(j=0;j&lt;z;j++)
+                    {
+                        printf("%d\t",m[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            
+            }
+                
+                
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./41.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="41r.png" alt="">
+    </pre>
+    <h3>42) Finding Prime Number :</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+{
+    int n,i;
+    printf("Enter a number to check whether it is prime or not: ");
+    scanf("%d",&n);
+    for (i=2;i&lt;n;i++)
+    {
+        if (n%i==0)
+        {
+            printf("Composite Number");
+            goto there;
+        }
+    }
+    printf("Prime Number");
+    there:
+    return 0;
+}
+                
+                
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./42.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="42r.png" alt="">
+    </pre>
+
+    <h3>43) Calculating the average of the Numbers :</h3>
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt;
+            int main()
+            {
+                int i,n;
+                float s=0,f;
+                printf("How many Numbers: ");
+                scanf("%d",&n);
+                float a[n];
+                printf("Enter the numbers: ");
+                for (i=0;i&lt;n;i++)
+                {
+                   scanf("%f",&a[i]);
+                }
+                for (i=0;i&lt;n;i++)
+                {
+                    s+=a[i];
+                }
+                f=s/n;
+                printf("The average of the given numbers is %f",f);
+                return 0;
+            }     
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./43.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="43r.png" alt="">
+    </pre>
+    <h3>44) Calculating the factorial a number :</h3>
+    <pre>
+        <code>
+    #include &lt;stdio.h&gt;
+    int main()
+{
+    int n,i,p=1;
+    printf("Enter the number to calculate the factorial: ");
+    scanf("%d",&n);
+    for(i=2;i&lt;=n;i++)
+    {
+        p*=i;
+    }
+    printf ("The factorial of the number is %d",p);
+    return 0;
+}  
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./44.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="44r.png" alt="">
+    </pre>
+
+    <h3>45) Printing the fibonassi series upto the given number:</h3>
+    <pre>
+    <code>
+    #include &lt;stdio.h&gt;
+    int main()
+    {
+    int n,a=0,b=1,i,c;
+    printf("Upto which you want to see the fibonacci series: ");
+    scanf("%d",&n);
+    printf("%d\t",a);
+    printf("%d\t",b);
+    c=a+b;
+    while(c<=n)
+    {
+    printf("%d\t",c);
+    a=b;
+    b=c;
+    c=a+b;
+
+    }
+    return 0;
+    }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./45.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="45r.png" alt="">
+    </pre>
+    <h3>46) Checking whether the input number is armstrong or not: </h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+            #include &lt;math.h&gt;
+            int main()
+            {
+                int n, f = 0, r;
+                printf("Enter a number: ");
+                scanf("%d", &n);
+                int d = n;
+                while (d != 0)
+                {
+                    r = d % 10;
+                    d = d / 10;
+                    f = f + (r * r * r);
+                }
+                if (f == n)
+                {
+                    printf("Armstrong Number");
+                }
+                else
+                {
+                    printf("Not armstrong Number");
+                }
+                return 0;
+            }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./46.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="46r.png" alt="">
+    </pre>
+    <h3>47) Checking whether the input number is palindrome or not: </h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+        int main()
+        {
+            int n, f = 0, r;
+            printf("Enter a number: ");
+            scanf("%d", &n);
+            int d = n;
+            while (d != 0)
+            {
+                r = d % 10;
+                d = d / 10;
+                f = f * 10 + r;
+            }
+            if (f == n)
+            {
+                printf("Palindrome Number");
+            }
+            else
+            {
+                printf("Not palindrome Number");
+            }
+            return 0;
+        }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./47.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="47r.png" alt="">
+    </pre>
+    <h3>48) Printing up to the n term of fibonacci series: </h3>
+    <pre>
+    <code>
+        #include &lt;stdio.h&gt;
+        int main()
+        {
+            int n, a = 0, b=1,c;
+            printf("How many  terms do you want to print?: ");
+            scanf("%d",&n);
+            printf("%d\t%d\t",a,b);
+            for (int i=0;i&lt;n-2;i++)
+            {
+                c=a+b;
+                printf("%d\t",c);
+                a=b;
+                b=c;
+            }
+            return 0;
+        }
+        </code>
+        <i> Compilation Interface:</i>
+        <br>
+        <img src="./48.png" alt="">
+        <br>    
+        <i>Code Execution:</i>
+        <br>
+        <img src="48r.png" alt="">
+    </pre>
+</body>
+
+</html>
